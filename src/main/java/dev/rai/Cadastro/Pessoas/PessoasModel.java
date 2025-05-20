@@ -19,7 +19,9 @@ public class PessoasModel {
     private String nome;
     private String email;
     private int idade;
-    private List<EmpregoModel> emprego;
+    @ManyToOne
+    @JoinColumn(name = "emprego_id")
+    private EmpregoModel emprego;
 
     public PessoasModel() {
     }

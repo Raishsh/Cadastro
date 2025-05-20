@@ -1,12 +1,12 @@
 package dev.rai.Cadastro.Empregos;
 
 import dev.rai.Cadastro.Pessoas.PessoasModel;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
+@Table (name = "tb_emprego")
 public class EmpregoModel {
 
     @Id
@@ -14,13 +14,15 @@ public class EmpregoModel {
     private long id;
     private String emprego;
     private double salario;
-    private PessoasModel pessoa;
+    @OneToMany(mappedBy = "missoes")
+    private List<PessoasModel> pessoa;
 
     public EmpregoModel() {
     }
 
-    public EmpregoModel(PessoasModel pessoa) {
-        this.pessoa = pessoa;
+    public EmpregoModel(String emprego, double salario) {
+        this.emprego = emprego;
+        this.salario = salario;
     }
 
     public String getEmprego() {
