@@ -1,7 +1,10 @@
-package dev.rai.Cadastro;
+package dev.rai.Cadastro.Pessoas;
 
 
+import dev.rai.Cadastro.Empregos.EmpregoModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 
 //Entity transforma uma classe comum numa entidade do banco de dados.
@@ -16,6 +19,7 @@ public class PessoasModel {
     private String nome;
     private String email;
     private int idade;
+    private List<EmpregoModel> emprego;
 
     public PessoasModel() {
     }
